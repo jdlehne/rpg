@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>GoT RPG  || JQ</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/jquery/game.js"></script>
+    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?effect=font-effect-fire-animation">-->
+</head>
+
+<body>
+
+<h1>Who - Will - Rule - the - Iron - Throne</h1>
+
+<h2 id="choose"> Choose your contender: </h2>
+
+<div class="container">
+
+	<div id = "characterChoice" class = "row">
+
+		<div class= "col-lg-3 col-md-3 col-sm-6 col-xs-6">
+			<div class = "charDiv" id="john-snow">
+				<p>john snow</p> <img class = "character" src="assets/css/images/snow.jpg"><footer id="health"></footer>
+			</div>	
+		</div>
+
+		<div class= "col-lg-3 col-md-3 col-sm-6 col-xs-6">
+			<div class="charDiv"  id="daenyreus">
+				<p>daenyreus</p> <img class = "character" src="assets/css/images/daen.jpg"><footer id="health"></footer>
+			</div>
+		</div>
+
+		<div class= "col-lg-3 col-md-3 col-sm-6 col-xs-6">
+			<div class="charDiv" id="cersei-lannister">
+				<p>cersei lannister</p> <img class = "character" src="assets/css/images/cersei.jpg"><footer id="health"></footer>
+			</div>	
+		</div>
+
+		<div class= "col-lg-3 col-md-3 col-sm-6 col-xs-6">
+			<div class ="charDiv" id="the-night--king">
+				<p>the night king</p> <img clas = "character" src="assets/css/images/nightking.jpg"><footer id="health"></footer>
+			</div>
+		</div>
+
+	</div>
+
+	
+	<div class="row">
+
+		<div class = "col-lg-4 col-md-4 col-sm-6 col-xs-6" id="playerSelection"> 
+			<p>Player choice goes here</p>
+		</div>
+
+		<div class= "col-lg-4 col-md-4 col-sm-12 col-xs-12" id ="battle">
+			<p id="vs">--VS--</p>
+			<p> Attack your Oppenent </p>
+			<p><button type="button" class="btn btn-danger" id="attackBtn">Attack</button></p>
+			<p id="results"></p>
+		</div>
+	
+		<div class= "col-lg-4 col-md-4 col-sm-6 col-xs-6" id="oppenentChoice">
+			<p>Oppenent goes here</p>
+		</div>	
+
+	</div>
+
+
+</div>
+
+</body>
+</html>

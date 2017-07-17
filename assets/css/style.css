@@ -1,0 +1,54 @@
+body{
+	background-image: url("images/background2.jpg");
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    font-family: "gotfont";
+}
+
+@font-face {
+	font-family: 'gotfont';
+	font-style: normal;
+ 	font-weight: 400;
+ 	src: local('gotfont'), url("images/gotfont.ttf") format('truetype');
+}
+
+img {
+	height:200px;
+	width:200px;
+	margin-left:30px;
+	
+}
+
+h1, h2, p{
+	text-align: center;
+	color:#e2e5e6;
+	text-shadow: 1px 1px black;
+}
+
+p {
+	text-align:center;
+}
+
+#choose {
+	margin-bottom: 30px;
+}
+
+footer {
+	text-align: center;
+	font-family: "gotfont";
+	font-size: 20px;
+	color:#e2e5e6;
+}
+
+#vs{
+	margin-bottom: 50px;
+}
+
+#playerSelection, #oppenentChoice {
+	text-align: center;
+}
+
+#results {
+	font-size: 10px;
+}
