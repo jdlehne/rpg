@@ -14,6 +14,11 @@
 </head>
 
 <body>
+	<div id="theme">
+		<button id="play" type="button" class="btn btn-outline-danger">Play</button>
+
+		<button id="pause" type="button" class="btn btn-outline-danger">Pause</button>
+	</div>
 
 <h1>Who - Will - Rule - the - Iron - Throne</h1>
 
@@ -42,7 +47,7 @@
 		</div>
 
 		<div class= "col-lg-3 col-md-3 col-sm-6 col-xs-6">
-			<div class ="charDiv" id="the-night--king">
+			<div class ="charDiv" id="the-night-king">
 				<p>the night king</p> <img clas = "character" src="assets/css/images/nightking.jpg"><footer id="health"></footer>
 			</div>
 		</div>
@@ -52,8 +57,9 @@
 	
 	<div class="row">
 
-		<div class = "col-lg-4 col-md-4 col-sm-6 col-xs-6" id="playerSelection"> 
-			<p>Player choice goes here</p>
+		<div class = "col-lg-4 col-md-4 col-sm-6 col-xs-6"> 
+			<p>You Chose:</p>
+			<p id="playerSelection"></p>
 		</div>
 
 		<div class= "col-lg-4 col-md-4 col-sm-12 col-xs-12" id ="battle">
@@ -63,12 +69,14 @@
 			<p id="results"></p>
 		</div>
 	
-		<div class= "col-lg-4 col-md-4 col-sm-6 col-xs-6" id="oppenentChoice">
-			<p>Oppenent goes here</p>
+		<div class= "col-lg-4 col-md-4 col-sm-6 col-xs-6">
+			<p>Challenger to the Throne: </p>
+			<p id="oppenentChoice"></p>
 		</div>	
 
 	</div>
 
+		
 
 </div>
 
