@@ -3,10 +3,10 @@ $(document).ready(function() { //beginning of char select bracketg
     var characters = { //begin char block
         "john-snow": {
             name: "john-snow",
-            hitpoints: 100,
-            attack: 6,
+            hitpoints: 120,
+            attack: 30,
             image: "assets/css/images.snow.jpg",
-            counterAttack: 15,
+            counterAttack: 45,
         },
 
         "daenyreus": {
@@ -20,15 +20,15 @@ $(document).ready(function() { //beginning of char select bracketg
         "cersei-lannister": {
             name: "cersei-lannister",
             hitpoints: 100,
-            attack: 12,
+            attack: 20,
             image: "assets/css/images/cersei.jpg",
-            counterAttack: 10,
+            counterAttack: 25,
         },
 
         "the-night-king": {
             name: "the-night-king",
             hitpoints: 130,
-            attack: 8,
+            attack: 25,
             image: "assets/css/images/nightking.jpg",
             counterAttack: 25,
         },
@@ -38,8 +38,6 @@ $(document).ready(function() { //beginning of char select bracketg
     var playerSelected = false;
     var enemySelected = false;
     
-
-
     // write health into footer slot for each character from their Object block
     $("#john-snow").find("#health").html(characters["john-snow"].hitpoints);
     $("#daenyreus").find("#health").html(characters["daenyreus"].hitpoints);
@@ -49,44 +47,41 @@ $(document).ready(function() { //beginning of char select bracketg
     function pickChar(char) {
         //gameOVer function
         if (!enemySelected) {
-            if (!playerSelected) { // Selecting charachter and moving to .playerSelected
+            if (!playerSelected) { // Selecting character and moving to .playerSelected
                 $("#playerSelection").html($(this).show('slow'));
                 $("#playerSelection").children().addClass("playerChoice");
-                $("#enemy-panel").append($("#characterChoice").html()).show('slow');
-
                 $("#choose").html("now choose your oppenent");
                 playerSelected = true;
+
             } else {
                 //Move enemy here
                 $("#oppenentChoice").html($(this).show("slow"));
                 $("#oppenentChoice").children().addClass("enemy");
-                //$("#characterChoice").html($(this).hide("slow"));-----------------Bug hide other chars
-                enemySelected = true;
-                
+                $("#choose").html("defend your stake to the throne");
+                $("#phase").html("Attack your oppenent");
+                //$("#characterChoice").html($(this).hide("slow"));//-----------------Bug hide other chars
+                enemySelected = true; 
             } //drops enemy to oppenent section
 
-            //Once both charachters are set, use for attack
-            $("#attackBtn").unbind('click').click(function(evt) {
 
-
+            //Once both characters are set, use for attack
+            $("#attackBtn").unbind('click').click(function(evt) {       
                 characters[$(".playerChoice").attr('id')].hitpoints -= characters[$(".enemy").attr('id')].counterAttack;
                 console.log(characters[$(".playerChoice").attr('id')].name + " " + characters[$(".playerChoice").attr('id')].hitpoints);
                 $("#results").html("the enemy attacked you for " + characters[$(".enemy").attr('id')].counterAttack + " and " + ("you attacked the enemy for  " + characters[$(".playerChoice").attr('id')].attack));
-                $("#health").html(characters[$(".playerChoice").attr('id')].hitpoints);
-                $("#health").html(characters[$(".enemy").attr('id')].hitpoints);
-
+                $(".playerChoice").find("#health").text(characters[$(".playerChoice").attr('id')].hitpoints);
                 characters[$(".enemy").attr('id')].hitpoints -= characters[$(".playerChoice").attr('id')].attack;
                 console.log(characters[$(".enemy").attr('id')].name + " " + characters[$(".enemy").attr('id')].hitpoints);
-                //$("#health").append(characters[$(".playerChoice").attr('id')].hitpoints);
-                // $("#health").append(characters[$(".enemy").attr('id')].hitpoints);
-
-
+                $(".enemy").find("#health").text(characters[$(".enemy").attr('id')].hitpoints);
                 //-------------FIX attack multiplier
-                characters[$(".playerChoice").attr('id')].attack++;
+                characters[$(".playerChoice").attr('id')].attack ++;
                 console.log("The player's attack is now  " + characters[$(".playerChoice").attr('id')].attack);
+
+                //----------Conditions for game Wins---------------//
 
                 if (characters[$(".enemy").attr('id')].hitpoints <= 0) {
                     $("#results").html("You Defeated  " + characters[$(".enemy").attr('id')].name + " please  Choose  another  contender  to  the  iron  throne");
+                    $("#phase").html("Select a new oppenent");
                     enemySelected = false;
                     pickChar();
                 }
@@ -94,9 +89,11 @@ $(document).ready(function() { //beginning of char select bracketg
                 if (characters[$(".playerChoice").attr('id')].hitpoints <= 0) {
                     $("#results").html(characters[$(".playerChoice").attr('id')].name + " is dead try again?");
                     $("#attackBtn").html("Try Again");
+                    //$("#body").css({background : 'url(assets/css/images/background.jpg)  no-repeat center center fixed '});
+                    //$("#characterChoice")html($(this).hide('slow'));
                     $("#attackBtn").click(function() {
                         location.reload();
-                        //--------------------------------------------------need to wirte win function
+                        //--------------------------------------------------need to write win function
 
                     });
 
@@ -131,6 +128,13 @@ $(document).ready(function() { //beginning of char select bracketg
     $('#pause').click(function() {
         audioElement.pause();
     });
+
+
+      function updateCharacterHtml(){
+            for (var i = 0; i < this.charactersArray.length; i++){
+                $('#' + this.charactersArray[i].name).find(".health").html(this.charactersArray[i].health);
+            }
+        };
 
 
 }); //end game bracket/close
