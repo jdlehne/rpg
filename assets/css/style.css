@@ -31,8 +31,14 @@ p {
 }
 
 #theme {
-	text-align: right;
+	text-align: center;
+
 }
+
+#play, #pause {
+	font-size: 8px;
+}
+
 
 #choose {
 	margin-bottom: 30px;
