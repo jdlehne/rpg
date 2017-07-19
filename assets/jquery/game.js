@@ -60,13 +60,14 @@ $(document).ready(function() { //beginning of char select bracketg
                 $("#oppenentChoice").children().addClass("enemy");
                 $("#choose").html("defend your stake to the throne");
                 $("#phase").html("Attack your oppenent");
-                //$("#characterChoice").html($(this).hide("slow"));//-----------------Bug hide other chars
+                $("#characterChoice").hide("slow");//-----------------Bug hide other chars
                 enemySelected = true; 
             } //drops enemy to oppenent section
 
 
             //Once both characters are set, use for attack
-            $("#attackBtn").unbind('click').click(function(evt) {     
+            $("#attackBtn").unbind('click').click(function(evt) {  
+                $("#characterChoice").hide("slow");   
                 //---------create variable for player attack increase---------
                 var attackIncrease = characters[$(".playerChoice").attr('id')].attack;  
                 //--------damage player takes on turn-------------
@@ -101,6 +102,7 @@ $(document).ready(function() { //beginning of char select bracketg
 
                 } else if (characters[$(".enemy").attr('id')].hitpoints <= 0) {
                             death.play();
+                            $("#characterChoice").show("slow");
                              $("#results").html("You Defeated  " + characters[$(".enemy").attr('id')].name + " please  Choose  another  contender  to  the  iron  throne");
                              $("#phase").html("Select a new oppenent");
                              enemySelected = false;
