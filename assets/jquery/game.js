@@ -4,8 +4,8 @@ $(document).ready(function() { //beginning of char select bracketg
         "john-snow": {
             name: "John Snow",
             hitpoints: 120,
-            attack: 18,
-            baseAttack: 18,
+            attack: 45,
+            baseAttack: 45,
             image: "assets/css/images.snow1.jpg",
             counterAttack: 45,
         },
@@ -95,15 +95,23 @@ $(document).ready(function() { //beginning of char select bracketg
 
                 //----------Conditions for game Wins---------------//
 
-                //If Game over, states player is dead and attack btn becomes try agaiain, reload on location.reload click
+                
 
-                if (wins === 3) {
+                if (wins === 2) {
+                    $("oppenentChoice").hide("slow");
                     console.log("player wins");
-                    $("#results").html("you win");
+                    $("#results").html("All Challengers Slain")
+                    $("#choose").html(characters[$(".playerChoice").attr('id')].name + " is the new ruler of the 7 Kingdoms!!!");
+                    $("#choose").css("color","#FFE43F");
                     $("#attackBtn").html("play again");
+                    $("#attackBtn").click(function() {
+                        location.reload();
+
+                    });    
+
                 
                 }  
-
+                //If Game over, states player is dead and attack btn becomes try agaiain, reload on location.reload click
                 else if (characters[$(".playerChoice").attr('id')].hitpoints <= 0) {
                     $("#body").css('background-image','url(assets/css/images/background.jpg center fixed');
                     $("#results").html(characters[$(".playerChoice").attr('id')].name + " is dead try again?");
@@ -116,7 +124,7 @@ $(document).ready(function() { //beginning of char select bracketg
                     });
 
                 }
-
+                //--------Runs pick a new oppenet once one is defeated
                 else if (characters[$(".enemy").attr('id')].hitpoints <= 0) {
                     death.play();
                     wins++;
@@ -128,8 +136,6 @@ $(document).ready(function() { //beginning of char select bracketg
                     pickChar();
 
                 }
-
-               //----------WIN VARIABLE NOT SET------------------//
 
 
             }); //attack function
