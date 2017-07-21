@@ -1,13 +1,13 @@
-$(document).ready(function() { //beginning of char select bracketg
+$(document).ready(function() { 
 
     var characters = { //begin char block
         "john-snow": {
             name: "John Snow",
             hitpoints: 120,
-            attack: 45,
-            baseAttack: 45,
+            attack: 28,
+            baseAttack: 28,
             image: "assets/css/images.snow1.jpg",
-            counterAttack: 45,
+            counterAttack: 35,
         },
 
         "daenyreus": {
@@ -97,12 +97,13 @@ $(document).ready(function() { //beginning of char select bracketg
 
                 
 
-                if (wins === 2) {
+                if (wins === 3) {
                     $("oppenentChoice").hide("slow");
                     console.log("player wins");
                     $("#results").html("All Challengers Slain")
                     $("#choose").html(characters[$(".playerChoice").attr('id')].name + " is the new ruler of the 7 Kingdoms!!!");
                     $("#choose").css("color","#FFE43F");
+                    $("#phase").html("Congratulations")
                     $("#attackBtn").html("play again");
                     $("#attackBtn").click(function() {
                         location.reload();
@@ -170,3 +171,5 @@ $(document).ready(function() { //beginning of char select bracketg
 
 
 }); //end game bracket/close
+
+
