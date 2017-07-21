@@ -97,7 +97,7 @@ $(document).ready(function() {
 
                 
 
-                if (wins === 3) {
+                if (wins === 2) {
                     $("oppenentChoice").hide("slow");
                     console.log("player wins");
                     $("#results").html("All Challengers Slain")
