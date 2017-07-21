@@ -100,10 +100,10 @@ $(document).ready(function() {
                 if (wins === 2) {
                     $("oppenentChoice").hide("slow");
                     console.log("player wins");
-                    $("#results").html("All Challengers Slain")
+                    $("#results").html("All Challengers Slain");
                     $("#choose").html(characters[$(".playerChoice").attr('id')].name + " is the new ruler of the 7 Kingdoms!!!");
                     $("#choose").css("color","#FFE43F");
-                    $("#phase").html("Congratulations")
+                    $("#phase").html("Congratulations");
                     $("#attackBtn").html("play again");
                     $("#attackBtn").click(function() {
                         location.reload();
